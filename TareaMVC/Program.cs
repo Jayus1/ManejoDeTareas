@@ -11,10 +11,10 @@ var politicasUsuariosAutenticados = new AuthorizationPolicyBuilder()
                                 .Build();
 
 // Add services to the container.
-builder.Services.AddControllersWithViews(opciones => 
+builder.Services.AddControllersWithViews(opciones =>
             opciones.Filters.Add(new AuthorizeFilter(politicasUsuariosAutenticados))
 );
-builder.Services.AddDbContext<ApplicationDbContext>(optiones => 
+builder.Services.AddDbContext<ApplicationDbContext>(optiones =>
 optiones.UseSqlServer("name=DefaultConnection"));
 
 builder.Services.AddAuthentication();
