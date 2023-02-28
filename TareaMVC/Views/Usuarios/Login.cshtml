@@ -5,6 +5,14 @@
 
 <h1>Login</h1>
 
+@if(ViewData.Keys.Contains("Mensaje"))
+{
+    <p style="color:red">
+        @ViewData["Mensaje"]
+    </p>
+}
+
+
 <div class="card">
     <div class="card-body">
         <form class="mb-3" action="Login">
