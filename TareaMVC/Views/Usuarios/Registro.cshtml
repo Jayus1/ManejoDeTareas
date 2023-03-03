@@ -6,27 +6,27 @@
 
 <div class="card">
     <div class="card-body">
-        <form asp-action="Registro">
-            <div asp-asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="Registro" class="mb-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="mb-3">
                 <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-check-input" />
+                <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
                 <label asp-for="Password" class="form-label"></label>
-                <input asp-for="Password" class="form-check-input" />
+                <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
 
-            <button class="btn btn-primary">Registrarte</button>
+            <button asp-action="Registro" class="btn btn-primary">Registrarte</button>
             <a asp-action="Login" class="btn btn-success">Logearte</a>
         </form>
     </div>
 </div>
 
-@section Script{
+@section Scripts{
     <partial name="_ValidationScriptsPartial" />
 }

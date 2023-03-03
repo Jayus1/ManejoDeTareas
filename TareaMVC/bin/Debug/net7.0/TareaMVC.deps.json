@@ -14,6 +14,14 @@
         },
         "runtime": {
           "TareaMVC.dll": {}
+        },
+        "resources": {
+          "en/TareaMVC.resources.dll": {
+            "locale": "en"
+          },
+          "es/TareaMVC.resources.dll": {
+            "locale": "es"
+          }
         }
       },
       "Azure.Core/1.24.0": {

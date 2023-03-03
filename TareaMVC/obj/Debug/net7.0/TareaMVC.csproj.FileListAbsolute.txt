@@ -79,3 +79,15 @@ C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\Microsoft.AspNetC
 C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\en\TareaMVC.resources.dll
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\es\TareaMVC.resources.dll
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\TareaMVC.Recursos.Controllers.HomeController.en.resources
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\TareaMVC.Recursos.RecursoCompartido.en.resources
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\TareaMVC.Recursos.RecursoCompartido.es.resources
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\TareaMVC.Recursos.Views.Home.Index.en.resources
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\TareaMVC.Recursos.Views.Home.Index.es.resources
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\TareaMVC.Recursos.Views.Shared._TraducionesJS.en.resources
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\TareaMVC.Recursos.Views.Shared._TraducionesJS.es.resources
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\TareaMVC.csproj.GenerateResource.cache
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\en\TareaMVC.resources.dll
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\es\TareaMVC.resources.dll

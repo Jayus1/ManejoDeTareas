@@ -15,7 +15,7 @@
 
 <div class="card">
     <div class="card-body">
-        <form class="mb-3" action="Login">
+        <form class="mb-3" asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="mb-3">
@@ -36,7 +36,7 @@
             </div>
 
             <button asp-action="Login" class="btn btn-primary">Logearse</button>
-            <a asp-action="Registro" class="btn btn-secondary">Crearse una nueva cuenta</a>
+            <a asp-action="Registro" class="btn btn-success">Crearse una nueva cuenta</a>
 
         </form>
     </div>

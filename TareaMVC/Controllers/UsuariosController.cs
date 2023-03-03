@@ -87,7 +87,7 @@ namespace TareaMVC.Controllers
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "El correo o contrase;a es incorrecto");
+                ModelState.AddModelError(string.Empty, "El correo o contraseña es incorrecto");
                 return View(model);
             } 
         }
