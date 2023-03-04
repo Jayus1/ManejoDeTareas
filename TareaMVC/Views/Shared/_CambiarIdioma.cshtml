@@ -7,11 +7,10 @@
     var urlRetorno = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
 }
 
-<form asp-action="CambiarIdioma" asp-asp-controller="Home"
+<form asp-action="CambiarIdioma" asp-controller="Home"
       asp-route-urlRetorno="@urlRetorno" method="post"
       class="form-horizontal" role="form" style="display: inline">
 
       <label>@localizer["Idioma:"]</label>
       <select name="cultura" asp-for="@requestCulture.RequestCulture.UICulture.Name" id="cultura" onchange="this.form.submit()" asp-items="@Constante.CulturasIASoportadas"></select> 
-
 </form>

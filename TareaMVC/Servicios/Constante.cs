@@ -8,8 +8,8 @@ namespace TareaMVC.Servicios
 
         public static readonly SelectListItem[] CulturasIASoportadas = new SelectListItem[]
         {
-            new SelectListItem{Value="en",Text="English" },
-            new SelectListItem{Value="es",Text="Español" }
+            new SelectListItem{Value="en",Text="English"},
+            new SelectListItem{Value="es",Text="Español"}
        };
 
     }
