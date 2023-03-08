@@ -1,19 +1,30 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization;
 @inject IViewLocalizer localizer
 
-@{
-    ViewData["Title"] = "Home Page";
-}
-
 <div class="text-center">
-    <h1 class="display-4">@localizer["Bienvenido"]</h1>
-    <p>@localizer["Aprende mas"]</p>
+    <h1 class="display-4">@localizer["Mis tareas"]</h1>
 </div>
 
-<button onclick="mostrarError()">
-    Mostrar error
-</button>
+<div id="contenedor-listado-tareas" class="text-center">
+    <div class="text-start" data-blind="foreach: tareas">
+        <div name="tarea" class="border mb-2 p-2" style="cursor: pointer">
+            <div class="fw-bold" data-blind="text: titulo">
+
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts{
-    <script src="~/js/Utilidades.js"></script>
+    <script>
+        const tareaListViewModel = {
+            tareas: ko.observableArray([
+                { titulo: 'Tarea 1' },
+                { titulo: 'Tarea 2' }
+            ])
+        }
+
+        ko.applyBindings(tareaListViewModel, document.getElementById('contenedor-listado-tareas'));
+
+    </script>
 }
