@@ -1,8 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization;
 @inject IViewLocalizer localizer
-
+@{
+    ViewData["Titulo"] = "Listado Tareas";
+}
 <div class="text-center">
     <h1 class="display-4">@localizer["Mis tareas"]</h1>
+    <button type="button" class="btn btn-primary mb-3" onclick="agregarNuevaTareaAlListado()">@localizer["Agregar tarea"]</button>
 </div>
 
 <div id="contenedor-listado-tareas" class="text-center">
@@ -11,18 +14,56 @@
             <div class="fw-bold" data-blind="text: titulo">
 
             </div>
+
+            <input type="text" name="titulo-tarea" autocomplete="off" data-bind="value= titulo, visible= esNuevo, 
+            event:{focusout: manejarFocusoutTituloTarea}" />
+
         </div>
     </div>
+
+    <div data-bind="visible: cargando" class="spinner-border">
+        <span class="visually-hidden">@localizer["Carga"]</span>
+    </div>
+
+    <div data-bind="visible: noHayTareas">
+        No existen tareas para mostrar
+    </div>
+
 </div>
 
 @section Scripts{
+
+    <script src="~/js/Tareas.js" asp-append-version="true"></script>
+
     <script>
-        const tareaListViewModel = {
-            tareas: ko.observableArray([
-                { titulo: 'Tarea 1' },
-                { titulo: 'Tarea 2' }
-            ])
+        function tareaListViewModelfn()= {
+            var self=this;
+            self.tareas= ko.observableArray([]);
+            self.cargando= ko.observable(true);
+
+            self.noHayTareas= ko.pureComputed(function(){
+                if(self.cargando()){
+                    return false;
+                }
+                return self.tareas() === 0;
+            })
         }
+
+        function tareaElementoListadoViewModel({id, titulo}){
+            var self= this;
+            var self.id= ko.observable(id);
+            var self.titulo= ko.observable(titulo);
+            var self.esNuevo= ko.pureComputed(function(){
+                return self.id()== 0
+            })
+        }
+
+        const tareaListViewModel = new tareaListViewModelfn();
+
+        setTimeout(()=>{
+            tareaListViewModel.tareas.push({titulo: 'Tarea 1'});
+            tareaListViewModel.cargando(false);
+        }, 2000)
 
         ko.applyBindings(tareaListViewModel, document.getElementById('contenedor-listado-tareas'));
 

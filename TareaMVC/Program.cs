@@ -28,6 +28,8 @@ optiones.UseSqlServer("name=DefaultConnection"));
 
 builder.Services.AddAuthentication();
 
+builder.Services.AddTransient<IServicioUsuario, ServicioUsuario>();
+
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(opciones =>
 {
     opciones.SignIn.RequireConfirmedAccount = false;
