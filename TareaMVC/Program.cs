@@ -29,6 +29,7 @@ optiones.UseSqlServer("name=DefaultConnection"));
 builder.Services.AddAuthentication();
 
 builder.Services.AddTransient<IServicioUsuario, ServicioUsuario>();
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(opciones =>
 {

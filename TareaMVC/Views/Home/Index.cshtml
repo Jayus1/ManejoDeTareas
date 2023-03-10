@@ -10,7 +10,7 @@
 
 <div id="contenedor-listado-tareas" class="text-center">
     <div class="text-start" data-blind="foreach: tareas">
-        <div name="tarea" class="border mb-2 p-2" style="cursor: pointer">
+        <div name="tarea" class="border mb-2 p-2" style="cursor: pointer" data-bind="click: manejarClickTareas">
             <div class="fw-bold" data-blind="text: titulo">
 
             </div>
@@ -31,12 +31,22 @@
 
 </div>
 
+<partial name="_ModalEditarTarea" />
+
 @section Scripts{
 
     <script src="~/js/Tareas.js" asp-append-version="true"></script>
+    <script src="~/js/Utilidades.js" asp-append-version="true"></script>
+
 
     <script>
-        function tareaListViewModelfn()= {
+
+        const urlTarea = '/api/tareas';
+
+        const modalEditarTarea = document.getElementById('modal-editar-tarea');
+        const modalEditarTareaBootstrap = new bootstrap.Modal(modalEditarTarea);
+
+        function tareaListViewModelfn(){
             var self=this;
             self.tareas= ko.observableArray([]);
             self.cargando= ko.observable(true);
@@ -58,14 +68,19 @@
             })
         }
 
+        const tareaEditarVM={
+            id:0,
+            titulo: ko.observable(''),
+            descripcion: ko.observable('')
+
+        }
+
         const tareaListViewModel = new tareaListViewModelfn();
 
-        setTimeout(()=>{
-            tareaListViewModel.tareas.push({titulo: 'Tarea 1'});
-            tareaListViewModel.cargando(false);
-        }, 2000)
+        obtenerTareas();
 
         ko.applyBindings(tareaListViewModel, document.getElementById('contenedor-listado-tareas'));
+        ko.applyBindings(tareaEditarVM, document.getElementById('modal-editar-tarea'));
 
     </script>
 }
