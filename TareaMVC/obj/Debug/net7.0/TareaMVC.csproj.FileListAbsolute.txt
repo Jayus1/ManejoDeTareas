@@ -91,3 +91,5 @@ C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\TareaMVC.Recursos
 C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\TareaMVC.csproj.GenerateResource.cache
 C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\en\TareaMVC.resources.dll
 C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\es\TareaMVC.resources.dll
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

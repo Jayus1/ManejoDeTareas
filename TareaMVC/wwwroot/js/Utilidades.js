@@ -21,3 +21,23 @@ function mostrarMensajeDeError(mensaje) {
         text: mensaje
     });
 }
+
+function confirmarAccion({callBackAceptar, callBackCancelar})
+{
+    Swal.fire({
+        title: titulo || 'Realmente queires hacer esto?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButton: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        focusConfirm; true
+        }).them((resultado) => {
+            if (resultado.isConfirmed) {
+                callBackAceptar();
+            }
+            else if (callBackCancelar){
+                callBackCancelar();
+            }
+        })
+}
