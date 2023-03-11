@@ -1,9 +1,9 @@
 ﻿async function mensajesDeErrorApi(respuesta) {
     let mensajeDeError = '';
 
-    if (respuesta.status == 400) {
+    if (respuesta.status === 400) {
         mensajeDeError = await respuesta.text();
-    } else if (respuesta.status == 401) {
+    } else if (respuesta.status === 401) {
         mensajeDeError = recursoNoEncontrado;
     }
     else {
@@ -17,21 +17,21 @@
 function mostrarMensajeDeError(mensaje) {
     Swal.fire({
         icon: 'error',
-        title: 'errror.....',
+        title: 'Error.....',
         text: mensaje
     });
 }
 
-function confirmarAccion({callBackAceptar, callBackCancelar})
+function confirmarAccion({callBackAceptar, callBackCancelar, titulo})
 {
     Swal.fire({
         title: titulo || 'Realmente queires hacer esto?',
         icon: 'warning',
         showCancelButton: true,
-        confirmButton: '#3085d6',
+        confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Si',
-        focusConfirm; true
+        focusConfirm: true
         }).them((resultado) => {
             if (resultado.isConfirmed) {
                 callBackAceptar();

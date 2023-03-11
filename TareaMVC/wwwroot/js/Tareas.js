@@ -1,12 +1,12 @@
 ﻿function agregarNuevaTareaAlListado() {
-    tareaListViewModel.tareas.push(new tareaElementoListadoViewModel({ id=0, titulo='' }));
+    tareaListadoViewModel.tareas.push(new tareaElementoListadoViewModel({ id=0, titulo='' }));
     $("[name=titulo-tarea]").last().focus();
 }
 
 async function manejarFocusoutTituloTarea(tarea) {
     const titulo = tarea.titulo();
     if (!titulo) {
-        tareaListViewModel.tareas.pop();
+        tareaListadoViewModel.tareas.pop();
         return;
     }
     const data = JSON.stringify(titulo);
@@ -14,11 +14,11 @@ async function manejarFocusoutTituloTarea(tarea) {
         method: 'POST',
         body: data,
         headers: {
-            'Comtent-Type': 'application/json'
+            'Content-Type': 'application/json'
         }
     });
 
-    if (respesta.ok) {
+    if (respuesta.ok) {
         const json = await respesta.json();
         tarea.id(json.id);
     }
@@ -28,7 +28,7 @@ async function manejarFocusoutTituloTarea(tarea) {
 }
 
 async function obtenerTareas() {
-    tareaListadoViewModelfn.cargando(true);
+    tareaListadoViewModel.cargando(true);
 
     const respuesta = await fetch(urlTarea, {
         method: 'GET',
@@ -37,31 +37,31 @@ async function obtenerTareas() {
         }
     })
 
-    if (!respuesta) {
+    if (!respuesta.ok) {
         manejarErrorApi(respuesta);
         return;
     }
 
     const json = await respuesta.json();
-    tareaListViewModel.tareas([]);
+    tareaListadoViewModel.tareas([]);
 
     json.forEach(valor => {
-        tareaElementoListado.tarea.push(new tareaElementoListadoViewModel(valor));
+        tareaElementoListado.tareas.push(new tareaElementoListadoViewModel(valor));
     });
 
-    tareaListadoViewModelfn.cargando(false);
+    tareaListadoViewModel.cargando(false);
 }
 
 async function actualizarOrdenTareas() {
     const ids = obtenerIdsTareas();
     await enviarIdsTareasAlBackend(ids);
 
-    const arregloOrdenado = tareaListViewModel.tarea.sorted(function (a, b) {
+    const arregloOrdenado = tareaListadoViewModel.tareas.sorted(function (a, b) {
         return ids.indexOf(a.id().toString()) - ids.indexOf(b.id().toString());
     });
 
-    tareaListViewModel.tareas([]);
-    tareaListViewModel.tareas(arregloOrdenado);
+    tareaListadoViewModel.tareas([]);
+    tareaListadoViewModel.tareas(arregloOrdenado);
 
 }
 
@@ -75,7 +75,7 @@ function obtenerIdsTareas() {
 
 async function enviarIdsTareasAlBackend(ids) {
     var data = JSON.stringify(ids);
-    await fetch(`${urlTareas}/ordenas`.{
+    await fetch(`${urlTarea}/ordenar`.{
         method: 'POST',
         body: data,
         headers: {
@@ -84,7 +84,7 @@ async function enviarIdsTareasAlBackend(ids) {
     })
 }
 
-async function manejarClickTareas() {
+async function manejarClickTareas(tarea) {
     if (tarea.esNuevo()) {
         return;
     }
@@ -107,9 +107,7 @@ async function manejarClickTareas() {
     tareaEditarVM.titulo(json.titulo);
     tareaEditarVM.descripcion(json.descripcion);
 
-    modalEditarTareaBootstrap.Show();
-
-
+    modalEditarTareaBootstrap.show();
 }
 
 $(function () {
@@ -135,8 +133,8 @@ async function manejarCambioEditarTarea()
 
     await editarTareaCompleta(obj);
 
-    const indice = tareaListViewModel.tarea().findIndex(t => t.id() === obj.id);
-    const tarea = tareaListViewModel.tarea()[indice];
+    const indice = tareaListadoViewModel.tareas().findIndex(t => t.id() === obj.id);
+    const tarea = tareaListadoViewModel.tareas()[indice];
     tarea.titulo(obj.titulo)
 }
 
@@ -155,7 +153,6 @@ async function editarTareaCompleta(tarea) {
         manejarErrorApi(respuesta);
         throw "error";
     }
-
 }
 
 function intentarBorrarTarea(tarea) {
@@ -165,16 +162,16 @@ function intentarBorrarTarea(tarea) {
         callBackAceptar: () => {
             borrarTarea(tarea)
         }, callBackCancelar: () => {
-            modalBootstrap.show();
+            modalEditarTareaBootstrap.show();
         },
-        titulo: `Desea borrar la tarea ${tarea.titulo()}`
+        titulo: `Desea borrar la tarea ${tarea.titulo()}?`
         })
 }
 
 async function borrarTarea(tarea) {
     const idTarea = tarea.id;
 
-    const respuesta = await fetch(`${urlTareas}/${idTarea}`, {
+    const respuesta = await fetch(`${urlTarea}/${idTarea}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -183,10 +180,10 @@ async function borrarTarea(tarea) {
 
     if (respuesta.ok) {
         const indice = obtenerIndiceTareaEdicion();
-        tareaListViewModel.tareas.splice(indice, 1);
+        tareaListadoViewModel.tareas.splice(indice, 1);
     }
 }
 
 function obtenerIndiceTareaEdicion() {
-    return tareaListViewModel.tareasfindIndex(t => t.id() == tareaEditarVM.id);
+    return tareaListadoViewModel.tareas().findIndex(t => t.id() == tareaEditarVM.id);
 }

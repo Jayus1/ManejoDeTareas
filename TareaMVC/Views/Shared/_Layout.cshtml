@@ -45,7 +45,7 @@
     <footer class="border-top footer text-muted">
         <div class="container d-flex" style="justify-content:space-between">
             <div>
-                &copy; 2023 - TareaMVC - @*<a asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+                &copy; 2023 - TareaMVC - <a asp-controller="Home" asp-action="Privacy">Privacy</a>
             </div>
             <partial name="_CambiarIdioma" />
         </div>
@@ -53,8 +53,9 @@
     <partial name="_TraducionesJS" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
