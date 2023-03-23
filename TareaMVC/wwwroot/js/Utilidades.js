@@ -1,43 +1,40 @@
-﻿async function mensajesDeErrorApi(respuesta) {
-    let mensajeDeError = '';
+﻿async function manejarErrorApi(respuesta) {
+    let mensajeError = '';
 
     if (respuesta.status === 400) {
-        mensajeDeError = await respuesta.text();
-    } else if (respuesta.status === 401) {
-        mensajeDeError = recursoNoEncontrado;
-    }
-    else {
-        mensajeDeError = errorInesperado;
+        mensajeError = await respuesta.text();
+    } else if (respuesta.status === 404) {
+        mensajeError = recursoNoEncontrado;
+    } else {
+        mensajeError = errorInesperado;
     }
 
-    mostrarMensajeDeError(mensajeDeError);
-
+    mostrarMensajeError(mensajeError);
 }
 
-function mostrarMensajeDeError(mensaje) {
+function mostrarMensajeError(mensaje) {
     Swal.fire({
         icon: 'error',
-        title: 'Error.....',
+        title: 'Error...',
         text: mensaje
     });
 }
 
-function confirmarAccion({callBackAceptar, callBackCancelar, titulo})
-{
+function confirmarAccion({ callBackAceptar, callbackCancelar, titulo }) {
     Swal.fire({
-        title: titulo || 'Realmente queires hacer esto?',
+        title: titulo || '¿Realmente deseas hacer esto?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si',
+        confirmButtonText: 'Sí',
         focusConfirm: true
-        }).them((resultado) => {
-            if (resultado.isConfirmed) {
-                callBackAceptar();
-            }
-            else if (callBackCancelar){
-                callBackCancelar();
-            }
-        })
+    }).then((resultado) => {
+        if (resultado.isConfirmed) {
+            callBackAceptar();
+        } else if (callbackCancelar) {
+            // El usuario ha presionado el botón de cancelar
+            callbackCancelar();
+        }
+    })
 }

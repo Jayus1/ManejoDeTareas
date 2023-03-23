@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -101,7 +101,10 @@ namespace TareaMVC.Controllers
         {
             var usuarioId = servicioUsuario.ObtenerUsuarioId();
 
-            var tarea= await context.Tareas.FirstOrDefaultAsync(t=> t.Id == id && t.UsuarioCreacionId== usuarioId);
+            var tarea= await context.Tareas
+                .Include(t=> t.Pasos.OrderBy(p=>p.Orden)) 
+                .FirstOrDefaultAsync(t=> t.Id == id && 
+                t.UsuarioCreacionId== usuarioId);
 
             if (tarea is null)
                 return NotFound();
