@@ -29,6 +29,9 @@ optiones.UseSqlServer("name=DefaultConnection"));
 builder.Services.AddAuthentication();
 
 builder.Services.AddTransient<IServicioUsuario, ServicioUsuario>();
+builder.Services.AddTransient<IAlmacenadorArchivos, AlmacenadorArchivosAzure>();
+builder.Services.AddTransient<IAlmacenadorArchivos, AlmacenadorArchivosLocal>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(opciones =>
