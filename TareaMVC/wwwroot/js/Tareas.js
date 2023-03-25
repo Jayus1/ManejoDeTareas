@@ -116,6 +116,8 @@ async function manejarClickTarea(tarea) {
             )
     })
 
+    prepararArchivosAdjuntos(json.archivosAdjuntos);
+
     modalEditarTareaBootstrap.show();
 
 }

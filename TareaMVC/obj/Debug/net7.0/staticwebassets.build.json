@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "g6zT56V4Idpvsb4bUkzaUxBowjOL82awx2xOb+hipPY=",
+  "Hash": "xATOteCzirVlbyr8rF1p9rvypsqi5bSRUBdstxUZxNw=",
   "Source": "TareaMVC",
   "BasePath": "_content/TareaMVC",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\wwwroot\\js\\Archivos-Adjuntos.js",
+      "SourceId": "TareaMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\wwwroot\\",
+      "BasePath": "_content/TareaMVC",
+      "RelativePath": "js/Archivos-Adjuntos.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Archivos-Adjuntos.js"
+    },
+    {
+      "Identity": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\wwwroot\\js\\Pasos.js",
+      "SourceId": "TareaMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\wwwroot\\",
+      "BasePath": "_content/TareaMVC",
+      "RelativePath": "js/Pasos.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Pasos.js"
     },
     {
       "Identity": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\wwwroot\\js\\site.js",

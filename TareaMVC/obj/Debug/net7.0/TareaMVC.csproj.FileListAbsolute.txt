@@ -93,3 +93,6 @@ C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\en\TareaMVC.resou
 C:\Users\julio\source\repos\TareaMVC\TareaMVC\obj\Debug\net7.0\es\TareaMVC.resources.dll
 C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\Azure.Storage.Blobs.dll
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\Azure.Storage.Common.dll
+C:\Users\julio\source\repos\TareaMVC\TareaMVC\bin\Debug\net7.0\System.IO.Hashing.dll

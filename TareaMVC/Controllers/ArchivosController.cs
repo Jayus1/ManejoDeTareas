@@ -64,6 +64,53 @@ namespace TareaMVC.Controllers
             await context.SaveChangesAsync();
 
             return archivosAdjuntos.ToList();
+        }
+
+        [HttpPut("id")]
+        public async Task<IActionResult> Put(Guid id, [FromBody] string titulo)
+        {
+            var usuarioId = servicioUsuario.ObtenerUsuarioId();
+            var archivoAdjunto = await context.ArchivosAdjuntos
+                .Include(a=> a.Tarea)
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            if(archivoAdjunto is null)
+            {
+                return NotFound();
+            }
+
+            if (archivoAdjunto.Tarea.UsuarioCreacionId != usuarioId)
+            {
+                return Forbid();
+            }
+
+            archivoAdjunto.Titulo= titulo;
+            await context.SaveChangesAsync();
+            return Ok();
+
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+
+            var usuarioId = servicioUsuario.ObtenerUsuarioId();
+            var archivoAdjunto = await context.ArchivosAdjuntos.Include(a => a.Tarea).FirstOrDefaultAsync(a => a.Id == id);
+
+            if(archivoAdjunto is null)
+            {
+                return NotFound();
+            }
+
+            if(archivoAdjunto.Tarea.UsuarioCreacionId != usuarioId)
+            {
+                return Forbid();
+            }
+
+            context.Remove(archivoAdjunto);
+            await context.SaveChangesAsync();
+            await almacenadorArchivos.Borrar(archivoAdjunto.Url, contenedor);
+            return Ok();
 
         }
     }

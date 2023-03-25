@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\wwwroot\\js\\Archivos-Adjuntos.js",
+      "PackagePath": "staticwebassets\\js\\Archivos-Adjuntos.js"
+    },
+    {
+      "Id": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\wwwroot\\js\\Pasos.js",
+      "PackagePath": "staticwebassets\\js\\Pasos.js"
+    },
+    {
       "Id": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\wwwroot\\js\\Tareas.js",
       "PackagePath": "staticwebassets\\js\\Tareas.js"
     },
