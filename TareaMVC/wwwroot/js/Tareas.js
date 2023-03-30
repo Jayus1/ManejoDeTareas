@@ -52,7 +52,6 @@ async function obtenerTareas() {
     });
 
     tareaListadoViewModel.cargando(false);
-
 }
 
 async function actualizarOrdenTareas() {

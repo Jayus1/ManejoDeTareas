@@ -20,9 +20,7 @@
             <div name="pasos-resumen" data-bind="visible: pasosTotal()>0">
                 <span data-bind="text: pasosRealizados"></span>/
                 <span data-bind="text: pasosTotal"></span>
-                <span data-bind="text: porcentaje"></span>
-
-
+                <span data-bind="text: porcentajeCompletado"></span>
             </div>
 
             <input type="text" name="titulo-tarea" autocomplete="off"
@@ -47,7 +45,7 @@
 
 @section Scripts{
 
-    <script src="~/js/utilidades.js" asp-append-version="true"></script>
+   <script src="~/js/utilidades.js" asp-append-version="true"></script>
     <script src="~/js/tareas.js" asp-append-version="true"></script>
     <script src="~/js/Pasos.js" asp-append-version="true"></script>
     <script src="~/js/Archivos-Adjuntos.js" asp-append-version="true"></script>
@@ -55,22 +53,13 @@
 
     <script>
 
-        // const tareaListadoViewModel={
-        //     tareas: ko.observableArray([
-        //         {titulo: 'Tarea 1'},
-        //         {titulo: 'Tarea 2'}
-        //     ])
-        // }
-
-        //ko.applyBindings(tareaListadoViewModel, document.getElementById('contenedor-listado-tareas'));
-
-
         const urlTareas = "/api/tareas";
         const urlPasos = "/api/pasos";
         const urlArchivos = "/api/archivos";
 
         const modalEditarTarea = document.getElementById('modal-editar-tarea');
         const modalEditarTareaBootstrap = new bootstrap.Modal(modalEditarTarea);
+
         function tareaListadoViewModelFn() {
             var self = this;
             self.tareas = ko.observableArray([]);
@@ -101,11 +90,12 @@
             });
 
         }
+
         const tareaEditarVM = {
             id: 0,
             titulo: ko.observable(''),
-            descripcion: ko.observable('')
-                    pasos: ko.observableArray([]),
+            descripcion: ko.observable(''),
+            pasos: ko.observableArray([]),
             archivosAdjuntos: ko.observableArray([])
         }
         const tareaListadoViewModel = new tareaListadoViewModelFn();

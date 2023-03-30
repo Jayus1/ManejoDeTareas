@@ -19,7 +19,7 @@ function manejarClickCancelarPaso(paso) {
     }
 }
 
-function manejarClickSalvarPaso(paso) {
+async function manejarClickSalvarPaso(paso) {
     paso.modoEdicion(false);
     const esNuevo = paso.esNuevo();
     const idTarea = tareaEditarVM.id;  
@@ -108,7 +108,7 @@ function manejarClickCheckboxPaso(paso) {
     const tarea = obtenerTareaEnEdicion();
     let pasosRealizadosActual = tarea.pasosRealizados();
 
-    if (paso.realizado() {
+    if (paso.realizado()) {
         pasosRealizadosActual++;
     }
     else {
@@ -179,8 +179,8 @@ async function actualizarOrdenPaso() {
 async function enviarDatosAlBackend(ids) {
     var data = JSON.stringify(ids);
     await fetch(`${urlPasos}/ordenar/${tareaEditarVM.id}`, {
-        method='POST',
-        body= data,
+        method: 'POST',
+        body: data,
         headers: {
             'Content-Type': 'application/json'
         }

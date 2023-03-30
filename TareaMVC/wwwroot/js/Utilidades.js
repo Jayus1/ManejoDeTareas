@@ -38,3 +38,14 @@ function confirmarAccion({ callBackAceptar, callbackCancelar, titulo }) {
         }
     })
 }
+
+function descargarArchivo(url, nombre) {
+    var link = document.createElement('a');
+    link.download = nombre;
+    link.target = "_blanket";
+    link.href = url;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    delete link;
+}
