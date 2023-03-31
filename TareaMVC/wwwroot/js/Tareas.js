@@ -111,11 +111,11 @@ async function manejarClickTarea(tarea) {
 
     json.pasos.forEach(paso => {
         tareaEditarVM.pasos.push(
-            new pasoViewModel({...paso, modoEdicion: false})
-            )
+            new pasoViewModel({ ...paso, modoEdicion: false })
+        )
     })
 
-    prepararArchivosAdjuntos(json.archivosAdjuntos);
+    prepararArchivosAdjuntos(json.archivoAdjuntos);
 
     modalEditarTareaBootstrap.show();
 
@@ -142,7 +142,7 @@ async function manejarCambioEditarTarea() {
 async function editarTareaCompleta(tarea) {
     const data = JSON.stringify(tarea);
 
-    const respuesta = await fetch(`${urlTareas}/${tarea.id}`, {
+    const respuesta = await fetch(`${urlTareas}/${tarea.id()}`, {
         method: 'PUT',
         body: data,
         headers: {

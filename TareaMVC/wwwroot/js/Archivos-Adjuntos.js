@@ -31,47 +31,34 @@ async function manejarSeleccionArchivoTarea(event) {
     inputArchivoTarea.value = null;
 }
 
-//async function manejarSeleccionArchivoTarea(event) {
-//    const archivos = event.target.files;
-//    const archivosArreglo = Array.from(archivos);
-
-//    const idTarea = tareaEditarVM.id;
-//    const formData = new FormData();
-
-//    for (var i = 0; i < archivosArreglo.length; i++) {
-//        formData.append("archivos", archivosArreglo[i]);
+//function prepararArchivosAdjuntos(archivosAdjuntos) {
+//    archivosAdjuntos.forEach(archivoAdjunto => {
+//        let fechaCreacion = archivoAdjunto.fechaCreacion;
+//        if (archivoAdjunto.fechaCreacion.indexOf('Z') === -1) {
+//        fechaCreacion += 'Z';
 //    }
 
-//    const respuesta = await fetch(`${urlArchivos}/${idTarea}`, {
-//        body: formData,
-//        method: 'POST'
-//    });
+//    const fechaCreacionDT = new Date(fechaCreacion);
+//    archivoAdjunto.publicado = fechaCreacionDT.toLocaleString();
 
-//    if (!respuesta.ok) {
-//        manejarErrorApi(respuesta);
-//        return;
-//    }
-
-//    const json = await respuesta.json();
-//    prepararArchivosAdjuntos(json);
-
-//    inputArchivoTarea.value = null;
+//    tareaEditarVM.archivosAdjuntos.push(new archivosAdjuntosViewModel({ ...archivoAdjunto, modoEdicion: false }));
+//});
 //}
 
 function prepararArchivosAdjuntos(archivosAdjuntos) {
     archivosAdjuntos.forEach(archivoAdjunto => {
         let fechaCreacion = archivoAdjunto.fechaCreacion;
         if (archivoAdjunto.fechaCreacion.indexOf('Z') === -1) {
-        fechaCreacion += 'Z';
-    }
+            fechaCreacion += 'Z';
+        }
 
-    const fechaCreacionDT = new Date(fechaCreacion);
-    archivoAdjunto.publicado = fechaCreacionDT.toLocaleString();
+        const fechaCreationDT = new Date(fechaCreacion);
+        archivoAdjunto.publicado = fechaCreationDT.toLocaleString();
 
-    tareaEditarVM.archivosAdjuntos.push(new archivosAdjuntosViewModel({ ...archivoAdjunto, modoEdicion: false }));
-});
-
-}
+        tareaEditarVM.archivosAdjuntos.push(
+            new archivoAdjuntoViewModel({ ...archivoAdjunto, mmodoEdicion: false }));
+    });
+} 
 
 
 let tituloArchivoAdjuntoAnterior;
