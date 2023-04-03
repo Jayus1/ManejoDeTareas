@@ -142,7 +142,7 @@ async function manejarCambioEditarTarea() {
 async function editarTareaCompleta(tarea) {
     const data = JSON.stringify(tarea);
 
-    const respuesta = await fetch(`${urlTareas}/${tarea.id()}`, {
+    const respuesta = await fetch(`${urlTareas}/${tarea.id}`, {
         method: 'PUT',
         body: data,
         headers: {

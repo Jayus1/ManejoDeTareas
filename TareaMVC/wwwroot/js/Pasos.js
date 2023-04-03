@@ -1,12 +1,13 @@
 ﻿function manejarClickAgregarPasos() {
     const indice = tareaEditarVM.pasos().findIndex(p => p.esNuevo());
 
-    if (indice = -1) {
+    if (indice !== -1) {
         return;
     } 
 
+    //tareaEditarVM.pasos.push(new pasoViewModel({ modoEdicion: true, realizado: false }));
     tareaEditarVM.pasos.push(new pasoViewModel({ modoEdicion: true, realizado: false }));
-    $("[name=txtPasoDescripcion]: visible").focus();
+    $("[name=txtPasoDescripcion]:visible").focus();
 }
 
 function manejarClickCancelarPaso(paso) { 
@@ -44,11 +45,11 @@ async function manejarClickSalvarPaso(paso) {
     }
 }
 async function insertarPaso(paso, data, idTarea) {
-    const respuesta = await fetch(`${urlPasos}/${idTarea}`, {
+    const respuesta = await fetch(`${urlPasos}/${idTarea}`,{
         body: data,
         method: "POST",
         headers: {
-            'Content-Type': 'application/jsom'
+            'Content-Type': 'application/json'
         }
     });
 
@@ -72,9 +73,8 @@ async function insertarPaso(paso, data, idTarea) {
 function obtenerCuerpoPeticionPaso(paso) {
     return JSON.stringify({
         descripcion: paso.descripcion(),
-        realizado: paso.realizado(),
-
-        })
+        realizado: paso.realizado()
+    });
 }
 
 function manejarClickDescripcionPaso(paso) {

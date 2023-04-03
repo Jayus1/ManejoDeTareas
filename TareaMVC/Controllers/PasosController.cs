@@ -57,7 +57,7 @@ namespace TareaMVC.Controllers
 
         }
 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public async Task<ActionResult> Put(Guid id, [FromBody] PasosCrearDTO pasosCrearDTO)
         {
             var usuarioId = servicioUsuario.ObtenerUsuarioId();

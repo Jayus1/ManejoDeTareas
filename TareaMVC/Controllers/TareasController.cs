@@ -86,10 +86,10 @@ namespace TareaMVC.Controllers
             for (int i = 0; i < ids.Length; i++)
             {
                 var id = ids[i];
-                var tarea = tareasDiccionario[i];
+                var tarea = tareasDiccionario[id];
                 tarea.Orden = i + 1;
             }
-
+            
             await context.SaveChangesAsync();
 
             return Ok();
@@ -113,7 +113,7 @@ namespace TareaMVC.Controllers
             return tarea;
         }
 
-        [HttpPut ("(id:int)")]
+        [HttpPut ("{id:int}")]
         public async Task<IActionResult> EditarTarea(int id, [FromBody] TareaEditarDTO tareaEditarDTO)
         {
             var usuarioId = servicioUsuario.ObtenerUsuarioId();

@@ -1,5 +1,5 @@
 ﻿<label><i class="bi bi-check-square"></i> Pasos de la Tarea</label>
-<button class="btn btn-secondary btn-sm" onclick="manejarClickAgregarUnPaso()">
+<button class="btn btn-secondary btn-sm" onclick="manejarClickAgregarPasos()">
     <i class="bi bi-plus"></i>
 </button>
 
@@ -14,7 +14,7 @@
             </div>
             <div class="col-11">
                 <span style="cursor: pointer" data-bind="text: descripcion, hidden: modoEdicion, 
-                    css: {text-decoration-line-through: realizado}, click: manejarClickDescripcionPaso"></span>
+                    css: {'text-decoration-line-through': realizado}, click: manejarClickDescripcionPaso"></span>
                 <textarea name="txtPasoDescripcion" class="form-control" 
                 placeholder="Agrege una descripcion" 
                 data-bind="{value: descripcion, visible: modoEdicion}"></textarea>
