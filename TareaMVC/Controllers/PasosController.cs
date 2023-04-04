@@ -69,7 +69,7 @@ namespace TareaMVC.Controllers
                 return NotFound();
             }
 
-            if (paso.Tarea.UsuarioCreacionId == usuarioId)
+            if (paso.Tarea.UsuarioCreacionId != usuarioId)
             {
                 return Forbid();
             }
@@ -82,7 +82,7 @@ namespace TareaMVC.Controllers
 
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
             var usuarioId = servicioUsuario.ObtenerUsuarioId();

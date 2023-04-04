@@ -80,13 +80,13 @@ function obtenerCuerpoPeticionPaso(paso) {
 function manejarClickDescripcionPaso(paso) {
     paso.modoEdicion(true);
     paso.descripcionAnterior = paso.descripcion();
-    $("[name=txtPasoDescripcion]: visible").focus();
+    $("[name=txtPasoDescripcion]:visible").focus();
 }
 
 async function actualizarPaso(data, id) {
     const respuesta = await fetch(`${urlPasos}/${id}`, {
         body: data,
-        method: "PUT",
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         }
@@ -121,7 +121,7 @@ function manejarClickCheckboxPaso(paso) {
 }
 
 function manejarClickBorrarPaso(paso) {
-    modalEditarTareaBooststrap.hide();
+    modalEditarTareaBootstrap.hide();
     confirmarAccion({
         callBackAceptar: () => {
             borrarPaso(paso);
@@ -136,7 +136,7 @@ function manejarClickBorrarPaso(paso) {
 
 async function borrarPaso(paso) {
     const respuesta = await fetch(`${urlPasos}/${paso.id()}`, {
-        method: "DELETE",
+        method: 'DELETE'
     });
 
     if (!respuesta.ok) {

@@ -23,7 +23,7 @@ namespace TareaMVC.Controllers
 
         [HttpPost("{tareaId:int}")]
         public async Task<ActionResult<IEnumerable<ArchivoAdjunto>>> Post(int tareaId,
-            [FromBody] IEnumerable<IFormFile> archivo)
+            [FromForm] IEnumerable<IFormFile> archivo)
         {
             var usuarioId = servicioUsuario.ObtenerUsuarioId();
 

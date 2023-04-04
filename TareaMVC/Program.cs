@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
+using System.Text.Json.Serialization;
 using TareaMVC;
 using TareaMVC.Servicios;
 
@@ -20,8 +21,11 @@ builder.Services.AddControllersWithViews(opciones =>
 ).AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
 .AddDataAnnotationsLocalization(opciones =>
 {
-    opciones.DataAnnotationLocalizerProvider = (_,factoria) => 
+    opciones.DataAnnotationLocalizerProvider = (_, factoria) =>
     factoria.Create(typeof(RecursoCompartido));
+}).AddJsonOptions(opciones =>
+{
+    opciones.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 builder.Services.AddDbContext<ApplicationDbContext>(optiones =>
 optiones.UseSqlServer("name=DefaultConnection"));
