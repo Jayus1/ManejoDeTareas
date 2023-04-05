@@ -10,6 +10,12 @@ async function manejarSeleccionArchivoTarea(event) {
     const archivosArreglo = Array.from(archivos);
 
     const idTarea = tareaEditarVM.id;
+
+    //const formData = new FormData();
+    //for (var i = 0; i < archivosArreglo.length; i++) {
+    //    formData.append("archivos", archivosArreglo[i]);
+    //}
+
     const formData = new FormData();
     for (var i = 0; i < archivosArreglo.length; i++) {
         formData.append("archivos", archivosArreglo[i]);
@@ -31,24 +37,10 @@ async function manejarSeleccionArchivoTarea(event) {
     inputArchivoTarea.value = null;
 }
 
-//function prepararArchivosAdjuntos(archivosAdjuntos) {
-//    archivosAdjuntos.forEach(archivoAdjunto => {
-//        let fechaCreacion = archivoAdjunto.fechaCreacion;
-//        if (archivoAdjunto.fechaCreacion.indexOf('Z') === -1) {
-//        fechaCreacion += 'Z';
-//    }
-
-//    const fechaCreacionDT = new Date(fechaCreacion);
-//    archivoAdjunto.publicado = fechaCreacionDT.toLocaleString();
-
-//    tareaEditarVM.archivosAdjuntos.push(new archivosAdjuntosViewModel({ ...archivoAdjunto, modoEdicion: false }));
-//});
-//}
-
 function prepararArchivosAdjuntos(archivosAdjuntos) {
     archivosAdjuntos.forEach(archivoAdjunto => {
-        let fechaCreacion = archivoAdjunto.fechaCreacion;
-        if (archivoAdjunto.fechaCreacion.indexOf('Z') === -1) {
+        let fechaCreacion = archivoAdjunto.fechaDeCreacion;
+        if (archivoAdjunto.fechaDeCreacion.indexOf('Z') === -1) {
             fechaCreacion += 'Z';
         }
 

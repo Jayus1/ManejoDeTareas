@@ -11,7 +11,7 @@ namespace TareaMVC.Controllers
         private readonly ApplicationDbContext context;
         private readonly IServicioUsuario servicioUsuario;
         private readonly IAlmacenadorArchivos almacenadorArchivos;
-        private readonly string contenedor= "archivosAdjunstos";
+        private readonly string contenedor= "archivosadjuntos";
 
         public ArchivosController(ApplicationDbContext context, 
             IServicioUsuario servicioUsuario, IAlmacenadorArchivos almacenadorArchivos)
@@ -23,7 +23,7 @@ namespace TareaMVC.Controllers
 
         [HttpPost("{tareaId:int}")]
         public async Task<ActionResult<IEnumerable<ArchivoAdjunto>>> Post(int tareaId,
-            [FromForm] IEnumerable<IFormFile> archivo)
+            [FromForm] IEnumerable<IFormFile> archivos)
         {
             var usuarioId = servicioUsuario.ObtenerUsuarioId();
 
@@ -39,6 +39,11 @@ namespace TareaMVC.Controllers
                 return Forbid();
             }
 
+            if (archivos.Count() == 0)
+            {
+                return BadRequest();
+            }
+
             var existeArchivosAdjuntos= 
                 await context.ArchivosAdjuntos.AnyAsync(x=> x.TareaId == tareaId);
 
@@ -49,7 +54,7 @@ namespace TareaMVC.Controllers
                     .Where(a => a.TareaId == tareaId).Select(a => a.Orden).MaxAsync();
             }
 
-            var resultados = await almacenadorArchivos.Almacenar(contenedor, archivo);
+            var resultados = await almacenadorArchivos.Almacenar(contenedor, archivos);
 
             var archivosAdjuntos = resultados.Select((resultados, indice) => new ArchivoAdjunto
             {
