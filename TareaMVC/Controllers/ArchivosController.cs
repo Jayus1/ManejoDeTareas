@@ -71,7 +71,7 @@ namespace TareaMVC.Controllers
             return archivosAdjuntos.ToList();
         }
 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Put(Guid id, [FromBody] string titulo)
         {
             var usuarioId = servicioUsuario.ObtenerUsuarioId();

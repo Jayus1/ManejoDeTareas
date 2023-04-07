@@ -32,6 +32,7 @@ async function manejarSeleccionArchivoTarea(event) {
     }
 
     const json = await respuesta.json();
+    console.log(json);
     prepararArchivosAdjuntos(json);
 
     inputArchivoTarea.value = null;
@@ -73,7 +74,7 @@ async function manejarFocusoutTituloArchivoAdjunto(archivoAdjunto) {
         return;
     }
 
-    const data = JSON.stringify(archivoAdjunto, titulo());
+    const data = JSON.stringify(archivoAdjunto.titulo());
 
     const respuesta = await fetch(`${urlArchivos}/${idTarea}`, {
         body: data,
@@ -83,11 +84,9 @@ async function manejarFocusoutTituloArchivoAdjunto(archivoAdjunto) {
         }
     });
 
-    if (!espuesta.ok) {
+    if (!respuesta.ok) {
         manejarErrorApi(respuesta);
     }
-
-
 }
 
 function manejarClickBorrarArchivosAdjuntos(archivoAdjunto) {

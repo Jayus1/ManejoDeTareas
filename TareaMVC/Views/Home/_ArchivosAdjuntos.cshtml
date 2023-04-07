@@ -3,21 +3,22 @@
 
 <input type="file" id="archivoATarea" multiple style="display: none" onchange="manejarSeleccionArchivoTarea(event)" />
 
-<div data-bind="foreach: archivosAdjuntos">
+<div id="reordenable-adjuntos" data-bind="foreach: archivosAdjuntos">
     <div>
         <div style="cursor: pointer" class="fw-bold"
-             data-bind="text: titulo, hidden: modoEdicion, click: manejarClickTituloArchivoAdjunto">
+             data-bind="text: titulo, hidden: modoEdicion, click: manejarClickTituloArchivoAdjunto"></div>
 
             <div data-bind="visible: modoEdicion, event:{focusout: manejarFocusoutTituloArchivoAdjunto}">
-                <input name="txtArchivoAdjuntoTitulo" type="text" class="form-control" data-bind="value:titulo, attr:{'data-id': id}" />
-
+                <input name="txtArchivoAdjuntoTitulo" type="text" class="form-control" 
+                data-bind="value:titulo, attr:{'data-id': id}" />
             </div>
 
             <div>
-                Agregado <span data-bind="text: publicado"></span>  - 
-                <span class="fw-bold" style="cursor: pointer" data-bind="click: manejarClickBorrarArchivosAdjuntos"> Borrar</span> -
-                <span class="fw-bold" style="cursor: pointer" data-bind="click: manejarClickDescargarArchivosAdjuntos"> Descargar</span>
+                Agregado <span data-bind="text: publicado"></span> - 
+                <span class="fw-bold" style="cursor: pointer" 
+                data-bind="click: manejarClickBorrarArchivosAdjuntos">Borrar</span> -
+                <span class="fw-bold" style="cursor: pointer" 
+                data-bind="click: manejarClickDescargarArchivosAdjuntos">Descargar</span>
             </div>
-        </div>
     </div>
 </div>
