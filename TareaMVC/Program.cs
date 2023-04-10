@@ -30,7 +30,11 @@ builder.Services.AddControllersWithViews(opciones =>
 builder.Services.AddDbContext<ApplicationDbContext>(optiones =>
 optiones.UseSqlServer("name=DefaultConnection"));
 
-builder.Services.AddAuthentication();
+builder.Services.AddAuthentication().AddMicrosoftAccount(optiones =>
+{
+    optiones.ClientId = builder.Configuration["MicrosoftClientId"];
+    optiones.ClientSecret = builder.Configuration["MicrosoftSecretId"];
+});
 
 builder.Services.AddTransient<IServicioUsuario, ServicioUsuario>();
 builder.Services.AddTransient<IAlmacenadorArchivos, AlmacenadorArchivosAzure>();

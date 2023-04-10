@@ -1,6 +1,6 @@
 ﻿@model UsuariosListadosViewModel
 @{
-    ViewData["Titulo"] = "Listado de Usuarios";
+    ViewData["Title"] = "Listado de Usuarios";
     Layout = "../Shared/_layout";
 }
 
@@ -16,7 +16,7 @@
 @if (Model.Usuarios is not null)
 {
     <form method="post">
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <td>Acciones</td>
@@ -30,12 +30,12 @@
                         <td>
                             <button asp-action="HacerAdmin"
                             asp-route-email="@usuario.Email"
-                            cite="btn btn-primary me-2">
+                            class="btn btn-primary me-2">
                                 Hacer Admin
                             </button>
                             <button asp-action="RemoverAdmin"
                             asp-route-email="@usuario.Email"
-                            cite="btn btn-secondary me-2">
+                            class="btn btn-secondary me-2">
                                 Remover Admin
                             </button>
                         </td>

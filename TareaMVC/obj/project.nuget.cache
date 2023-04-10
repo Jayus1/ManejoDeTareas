@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ptsa/1ruuKsN4jEts+JqIgEWyMbTFDw2aVQfqH1XDnOn2uPcBIyL94NE9cDl7qq8IZ749ZPqL7R6GBW8y2SuSQ==",
+  "dgSpecHash": "vhl1GU6F9GP1QoM7mawZ8fC+H1/xbAY9+cPE6EukFzfBVMSyiVVJlms55CfsZ9Olf4IeW/K7A7f1HvjQ584Q0w==",
   "success": true,
   "projectFilePath": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\TareaMVC.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\julio\\.nuget\\packages\\azure.storage.blobs\\12.15.0\\azure.storage.blobs.12.15.0.nupkg.sha512",
     "C:\\Users\\julio\\.nuget\\packages\\azure.storage.common\\12.14.0\\azure.storage.common.12.14.0.nupkg.sha512",
     "C:\\Users\\julio\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\julio\\.nuget\\packages\\microsoft.aspnetcore.authentication.microsoftaccount\\7.0.4\\microsoft.aspnetcore.authentication.microsoftaccount.7.0.4.nupkg.sha512",
     "C:\\Users\\julio\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.3\\microsoft.aspnetcore.cryptography.internal.7.0.3.nupkg.sha512",
     "C:\\Users\\julio\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.3\\microsoft.aspnetcore.cryptography.keyderivation.7.0.3.nupkg.sha512",
     "C:\\Users\\julio\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.3\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.3.nupkg.sha512",

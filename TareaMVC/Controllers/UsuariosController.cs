@@ -118,7 +118,7 @@ namespace TareaMVC.Controllers
 
             if (remoteError is not null)
             {
-                mensaje = $"Error del proveedor externo:{remoteError}";
+                mensaje = $"Error del proveedor externo: {remoteError}";
                 return RedirectToAction("Login", routeValues: new { mensaje });
             }
 

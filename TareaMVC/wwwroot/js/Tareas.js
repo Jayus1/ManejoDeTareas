@@ -108,6 +108,8 @@ async function manejarClickTarea(tarea) {
     tareaEditarVM.descripcion(json.descripcion);
 
     tareaEditarVM.pasos([]);
+    tareaEditarVM.archivosAdjuntos([]);
+
 
     json.pasos.forEach(paso => {
         tareaEditarVM.pasos.push(

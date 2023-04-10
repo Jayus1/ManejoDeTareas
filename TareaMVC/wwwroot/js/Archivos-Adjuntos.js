@@ -93,7 +93,7 @@ function manejarClickBorrarArchivosAdjuntos(archivoAdjunto) {
     modalEditarTareaBootstrap.hide();
 
     confirmarAccion({
-        callbackAceptar: () => {
+        callBackAceptar: () => {
             borrarArchivoAdjunto(archivoAdjunto);
             modalEditarTareaBootstrap.show();
         },

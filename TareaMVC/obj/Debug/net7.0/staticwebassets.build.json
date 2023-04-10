@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zFhLnnDOuFV8REhZ8YZAHFoMYtvmCSCqaypNQtMeJDM=",
+  "Hash": "xATOteCzirVlbyr8rF1p9rvypsqi5bSRUBdstxUZxNw=",
   "Source": "TareaMVC",
   "BasePath": "_content/TareaMVC",
   "Mode": "Default",
@@ -49,23 +49,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\TareaMVC.bundle.scp.css"
-    },
-    {
-      "Identity": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\wwwroot\\archivosadjuntos\\c8449e87-fdb2-4ac1-8c1f-e6f8c78a6c93.png",
-      "SourceId": "TareaMVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\wwwroot\\",
-      "BasePath": "_content/TareaMVC",
-      "RelativePath": "archivosadjuntos/c8449e87-fdb2-4ac1-8c1f-e6f8c78a6c93.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\archivosadjuntos\\c8449e87-fdb2-4ac1-8c1f-e6f8c78a6c93.png"
     },
     {
       "Identity": "C:\\Users\\julio\\source\\repos\\TareaMVC\\TareaMVC\\wwwroot\\css\\site.css",
